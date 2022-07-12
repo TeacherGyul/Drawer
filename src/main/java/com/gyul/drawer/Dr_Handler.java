@@ -30,9 +30,9 @@ public class Dr_Handler implements Listener {
     @EventHandler
     public void breakDrawer(BlockBreakEvent e){
         if(e.getBlock().getType().equals(Material.BROWN_GLAZED_TERRACOTTA)){
-
+            if(map.containsKey(e.getBlock().getLocation())){
                 map.remove(e.getBlock().getLocation());
-
+            }
         }
     }
 
