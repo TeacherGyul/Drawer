@@ -39,7 +39,7 @@ public class Dr_Handler implements Listener {
                     e.getBlock().getWorld().dropItem(loc, i);
                 }
                 
-                map.remove(e.getBlock().getLocation());
+                map.remove(loc);
             }
         }
     }
