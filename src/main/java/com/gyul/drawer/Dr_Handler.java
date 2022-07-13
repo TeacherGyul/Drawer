@@ -31,8 +31,8 @@ public class Dr_Handler implements Listener {
     @EventHandler
     public void breakDrawer(BlockBreakEvent e){
         if(e.getBlock().getType().equals(Material.BROWN_GLAZED_TERRACOTTA)){
-            if(map.containsKey(e.getBlock().getLocation())){
-                Location loc = e.getBlock().getLocation();
+            Location loc = e.getBlock().getLocation();
+            if(map.containsKey(loc)){
                 
                 //서랍이 부서졌을 때, 아이템 드롭
                 for(ItemStack i : map.get(loc).getContents()){
