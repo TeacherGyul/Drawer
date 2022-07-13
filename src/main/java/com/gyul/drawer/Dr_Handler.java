@@ -11,6 +11,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 
@@ -31,6 +32,13 @@ public class Dr_Handler implements Listener {
     public void breakDrawer(BlockBreakEvent e){
         if(e.getBlock().getType().equals(Material.BROWN_GLAZED_TERRACOTTA)){
             if(map.containsKey(e.getBlock().getLocation())){
+                Location loc = e.getBlock().getLocation();
+                
+                //서랍이 부서졌을 때, 아이템 드롭
+                for(ItemStack i : map.get(loc).getContents()){
+                    e.getBlock().getWorld().dropItem(loc, i);
+                }
+                
                 map.remove(e.getBlock().getLocation());
             }
         }
